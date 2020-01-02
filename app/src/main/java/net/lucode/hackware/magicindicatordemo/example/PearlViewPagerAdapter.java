@@ -12,11 +12,11 @@ import net.lucode.hackware.magicindicatordemo.R;
 
 import java.util.ArrayList;
 
-public class PearlViiewPagerAdapter extends PagerAdapter {
+public class PearlViewPagerAdapter extends PagerAdapter {
     private Context = mContext;
     private ArrayList<Integer> contentList;
 
-    public PearlViiewPagerAdapter(Context context, ArrayList<Integer> contentList){
+    public PearlViewPagerAdapter(Context context, ArrayList<Integer> contentList){
         this.mContext = context;
         this.contentList = contentList;
     }
