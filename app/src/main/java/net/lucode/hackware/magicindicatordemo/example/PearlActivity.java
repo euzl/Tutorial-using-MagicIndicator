@@ -36,15 +36,15 @@ public class PearlActivity extends AppCompatActivity {
 
         ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setClipToPadding(false);
+        viewPager.setAdapter(new PearlViewPagerAdapter(this, imageList));
+
+        initMagicIndicator();
 
         // 화면구성하는거같음
         float density = getResources().getDisplayMetrics().density;
         int margin = (int) (DP * density);
         viewPager.setPadding(margin, 0, margin, 0);
         viewPager.setPageMargin(margin/2);
-
-        viewPager.setAdapter(new PearlViewPagerAdapter(this, imageList));
-
     }
 
     public void initializeData(){
