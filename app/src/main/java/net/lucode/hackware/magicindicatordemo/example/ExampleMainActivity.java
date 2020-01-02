@@ -17,29 +17,8 @@ public class ExampleMainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.scrollable_tab:
-                startActivity(new Intent(this, ScrollableTabExampleActivity.class));
-                break;
-            case R.id.fixed_tab:
-                startActivity(new Intent(this, FixedTabExampleActivity.class));
-                break;
-            case R.id.dynamic_tab:
-                startActivity(new Intent(this, DynamicTabExampleActivity.class));
-                break;
-            case R.id.no_tab_only_indicator:
-                startActivity(new Intent(this, NoTabOnlyIndicatorExampleActivity.class));
-                break;
-            case R.id.tab_with_badge_view:
-                startActivity(new Intent(this, BadgeTabExampleActivity.class));
-                break;
-            case R.id.work_with_fragment_container:
-                startActivity(new Intent(this, FragmentContainerExampleActivity.class));
-                break;
-            case R.id.load_custom_layout:
-                startActivity(new Intent(this, LoadCustomLayoutExampleActivity.class));
-                break;
             case R.id.custom_navigator:
-                startActivity(new Intent(this, CustomNavigatorExampleActivity.class));
+                startActivity(new Intent(this, PearlActivity.class));
                 break;
             default:
                 break;
