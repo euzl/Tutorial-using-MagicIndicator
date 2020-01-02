@@ -34,17 +34,17 @@ public class PearlActivity extends AppCompatActivity {
 
         this.initializeData();
 
-        ViewPager viewPager = findViewById(R.id.viewPager);
-        viewPager.setClipToPadding(false);
-        viewPager.setAdapter(new PearlViewPagerAdapter(this, imageList));
+        mViewPager = findViewById(R.id.viewPager);
+        mViewPager.setClipToPadding(false);
+        mViewPager.setAdapter(new PearlViewPagerAdapter(this, imageList, textList));
 
         initMagicIndicator();
 
         // 화면구성하는거같음
         float density = getResources().getDisplayMetrics().density;
         int margin = (int) (DP * density);
-        viewPager.setPadding(margin, 0, margin, 0);
-        viewPager.setPageMargin(margin/2);
+        mViewPager.setPadding(margin, 0, margin, 0);
+        mViewPager.setPageMargin(margin/2);
     }
 
     public void initializeData(){
@@ -57,11 +57,11 @@ public class PearlActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator);
+        MagicIndicator magicIndicator = findViewById(R.id.magic_indicator);
         CircleNavigator circlenavigator = new CircleNavigator(this);
         circlenavigator.setCircleCount(CHANNELS.length);
         circlenavigator.setFollowTouch(false);
-        circlenavigator.setCircleColor(Color.GREEN);
+        circlenavigator.setCircleColor(Color.RED);
         circlenavigator.setCircleClickListener(new CircleNavigator.OnCircleClickListener() {
             @Override
             public void onClick(int index) {
