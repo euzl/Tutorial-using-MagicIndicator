@@ -15,9 +15,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PearlActivity extends AppCompatActivity {
-
-    private static final String[] CHANNELS = new String[]{"첫번째페이지\n놀랍게도 고양이다", "두번째페이지\n얘가 더 졸랍다 강아지", "세번째\n토끼 작은척함"};
+    // page마다 표시될 이미지 리스트
     private ArrayList<Integer> imageList;
+
+    // page마다 표시될 text 메시지 리스트
+    // todo 현재 하드코딩이지만 더 깔끔하게 수정가능할 듯
+    private static final String[] CHANNELS = new String[]{"첫번째페이지\n놀랍게도 고양이다", "두번째페이지\n얘가 더 졸랍다 강아지", "세번째\n토끼 작은척함"};
     private List<String> textList = Arrays.asList(CHANNELS);
 
     private ViewPager mViewPager;
@@ -33,8 +36,9 @@ public class PearlActivity extends AppCompatActivity {
 
         mViewPager = findViewById(R.id.viewPager);
         mViewPager.setClipToPadding(false);
-        mViewPager.setAdapter(new PearlViewPagerAdapter(this, imageList, textList));
+        mViewPager.setAdapter(new PearlViewPagerAdapter(this, imageList, textList)); //viewPager에 어댑터를 통해 내용설정
 
+        // 매직 인디케이터(진주목걸이) 띄우기
         initMagicIndicator();
 
         // 화면구성하는거같음
@@ -44,6 +48,7 @@ public class PearlActivity extends AppCompatActivity {
         mViewPager.setPageMargin(margin/2);
     }
 
+    // imageList에 이미지 추가
     public void initializeData(){
         imageList = new ArrayList();
 
@@ -53,6 +58,7 @@ public class PearlActivity extends AppCompatActivity {
 
     }
 
+    // 진주목걸이
     private void initMagicIndicator() {
         MagicIndicator magicIndicator = findViewById(R.id.magic_indicator);
         CircleNavigator circlenavigator = new CircleNavigator(this);

@@ -26,6 +26,7 @@ public class PearlViewPagerAdapter extends PagerAdapter {
         this.textList = textList;
     }
 
+    // page에 들어갈 내용 설정
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
@@ -43,6 +44,7 @@ public class PearlViewPagerAdapter extends PagerAdapter {
         return view;
     }
 
+    // viewPage에서 페이지 수 였던듯
     @Override
     public int getCount(){
         return imageList.size();
