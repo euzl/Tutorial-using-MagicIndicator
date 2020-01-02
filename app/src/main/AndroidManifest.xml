@@ -15,22 +15,6 @@
         </activity>
 
         <activity
-            android:name=".example.ScrollableTabExampleActivity"
-            android:label="@string/scrollable_tab" />
-
-        <activity
-            android:name=".example.FixedTabExampleActivity"
-            android:label="@string/fixed_tab" />
-
-        <activity
-            android:name=".example.DynamicTabExampleActivity"
-            android:label="@string/dynamic_tab" />
-
-        <activity
-            android:name=".example.NoTabOnlyIndicatorExampleActivity"
-            android:label="@string/no_tab_only_indicator" />
-
-        <activity
             android:name=".example.FragmentContainerExampleActivity"
             android:label="@string/work_with_fragment_container" />
 
