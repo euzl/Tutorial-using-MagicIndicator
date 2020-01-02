@@ -25,7 +25,7 @@ public class PearlViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.activity_pearl, null);
+        View view = inflater.inflate(R.layout.page_pearl, null);
 
         ImageView imageView = view.findViewById(R.id.imageView);
         imageView.setImageResource(imageList.get(position));
