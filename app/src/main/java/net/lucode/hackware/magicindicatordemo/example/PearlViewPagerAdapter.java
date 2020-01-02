@@ -13,22 +13,22 @@ import net.lucode.hackware.magicindicatordemo.R;
 import java.util.ArrayList;
 
 public class PearlViewPagerAdapter extends PagerAdapter {
-    private Context = mContext;
-    private ArrayList<Integer> contentList;
+    private Context mContext;
+    private ArrayList<Integer> imageList;
 
-    public PearlViewPagerAdapter(Context context, ArrayList<Integer> contentList){
+    public PearlViewPagerAdapter(Context context, ArrayList<Integer> imageList){
         this.mContext = context;
-        this.contentList = contentList;
+        this.imageList = imageList;
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        LayoutInflater inflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.activity_pearl, null);
 
         ImageView imageView = view.findViewById(R.id.imageView);
-        imageView.setImageResource(contentList.get(position));
+        imageView.setImageResource(imageList.get(position));
 
         container.addView(view);
 
@@ -36,7 +36,8 @@ public class PearlViewPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public int getCount(){return contentList == null ? 0 : contentList.size();
+    public int getCount(){
+        return imageList.size();
     }
 
     @Override
@@ -46,7 +47,7 @@ public class PearlViewPagerAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object o){
-        return (view == (View)o);
+        return (view == o);
     }
 
 }

@@ -29,7 +29,8 @@
         <activity
             android:name=".example.LoadCustomLayoutExampleActivity"
             android:label="@string/tab_with_custom_layout" />
-
+        <activity android:name=".example.PearlActivity"
+            android:label="pearl activity"/>
     </application>
 
 </manifest>

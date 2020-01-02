@@ -18,7 +18,7 @@ public class ExampleMainActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.custom_navigator:
-                startActivity(new Intent(this, CustomNavigatorExampleActivity.class));
+                startActivity(new Intent(this, PearlActivity.class));
                 break;
             default:
                 break;
