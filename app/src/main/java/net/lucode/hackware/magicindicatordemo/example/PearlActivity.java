@@ -14,12 +14,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// Todo : Set Text message
-// Todo : Add Indicator
-// Todo : Make pretty
 public class PearlActivity extends AppCompatActivity {
 
-    private static final String[] CHANNELS = new String[]{"첫번째페이지", "두번째페이지", "세번째"};
+    private static final String[] CHANNELS = new String[]{"첫번째페이지\n놀랍게도 고양이다", "두번째페이지\n얘가 더 졸랍다 강아지", "세번째\n토끼 작은척함"};
     private ArrayList<Integer> imageList;
     private List<String> textList = Arrays.asList(CHANNELS);
 
@@ -50,9 +47,9 @@ public class PearlActivity extends AppCompatActivity {
     public void initializeData(){
         imageList = new ArrayList();
 
-        imageList.add(R.drawable.image1);
-        imageList.add(R.drawable.image2);
-        imageList.add(R.drawable.image3);
+        imageList.add(R.drawable.tp1);
+        imageList.add(R.drawable.tp2);
+        imageList.add(R.drawable.tp3);
 
     }
 
