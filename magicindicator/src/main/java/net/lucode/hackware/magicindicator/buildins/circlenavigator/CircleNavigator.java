@@ -272,8 +272,6 @@ public class CircleNavigator extends View implements IPagerNavigator {
         return mTotalCount;
     }
 
-    public int getCurrentIndex() { return mCurrentIndex; }
-
     public void setCircleCount(int count) {
         mTotalCount = count;  // 此处不调用invalidate，让外部调用notifyDataSetChanged
     }
