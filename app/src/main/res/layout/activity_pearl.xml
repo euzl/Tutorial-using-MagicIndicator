@@ -24,11 +24,13 @@
         android:id="@+id/btn_prev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="15dp"
         android:onClick="onPrevButtonClick" />
 
     <TextView
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="15dp"
         android:onClick="onNextButtonClick" />
 </LinearLayout>

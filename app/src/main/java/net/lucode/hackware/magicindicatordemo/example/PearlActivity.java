@@ -3,10 +3,12 @@ package net.lucode.hackware.magicindicatordemo.example;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//todo 하드코딩엄청많다..
+//todo 뒤로가기버튼 막아야될듯?
 public class PearlActivity extends AppCompatActivity {
     // page마다 표시될 이미지 리스트
     private ArrayList<Integer> imageList;
@@ -34,8 +38,6 @@ public class PearlActivity extends AppCompatActivity {
     // 화면전환용 버튼
     TextView btnPrev;
     TextView btnNext;
-    // 현재 index 저장
-    private int currentPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +50,48 @@ public class PearlActivity extends AppCompatActivity {
         mViewPager.setClipToPadding(false);
         mViewPager.setAdapter(new PearlViewPagerAdapter(this, imageList, textList)); //viewPager에 어댑터를 통해 내용설정
 
-        // 매직 인디케이터(진주목걸이) 띄우기
-        initMagicIndicator();
-
         // 화면구성하는거같음
         float density = getResources().getDisplayMetrics().density;
         int margin = (int) (DP * density);
         mViewPager.setPadding(margin, 0, margin, 0);
         mViewPager.setPageMargin(margin/2);
 
-        //현재페이지 설정
-        currentPage = mViewPager.getCurrentItem();
+        // 버튼... 메시지... 지정...
+        btnPrev = findViewById(R.id.btn_prev);
+        btnNext = findViewById(R.id.btn_next);
 
-        setTextViewMessage();
+        btnNext.setText("다음");
+
+        // 매직 인디케이터(진주목걸이) 띄우기
+        initMagicIndicator();
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+                if(mViewPager.getCurrentItem() == 0){
+                    btnPrev.setText("");
+                    btnNext.setText("다음");
+                }
+                else if(mViewPager.getCurrentItem()==CHANNELS.length-1){
+                    btnPrev.setText("이전");
+                    btnNext.setText("시작하기");
+                }
+                else {
+                    btnPrev.setText("이전");
+                    btnNext.setText("다음");
+                }
+            }
+        });
     }
 
     // imageList에 이미지 추가
@@ -72,43 +103,24 @@ public class PearlActivity extends AppCompatActivity {
         imageList.add(R.drawable.tp3);
     }
 
-    private void setTextViewMessage(){
-        if(currentPage == 0){
-            btnPrev.setText("");
-            btnNext.setText("다음");
-        }
-        else if(currentPage==CHANNELS.length){
-            btnPrev.setText("이전");
-            btnNext.setText("시작하기");
-        }
-        else {
-            btnPrev.setText("이전");
-            btnNext.setText("다음");
-        }
-    }
     public void onPrevButtonClick(View v){
-        //첫페이지
-        if(currentPage == 0){
-            return;
-        }
-
-        mViewPager.setCurrentItem(currentPage-1);
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem()-1);
     }
 
     public void onNextButtonClick(View v){
         // 마지막 페이지라면 '시작하기'버튼을 눌렀을 때 다시보지못하게
-        if(currentPage == CHANNELS.length) {
+        if(mViewPager.getCurrentItem() == CHANNELS.length-1) {
             int infoFirst = 1;
             SharedPreferences a = getSharedPreferences("a", MODE_PRIVATE);
             SharedPreferences.Editor editor = a.edit();
             editor.putInt("First", infoFirst);
             editor.commit();
-            (Toast.makeText(getApplicationContext(), "first End", Toast.LENGTH_LONG)).show();
+            (Toast.makeText(getApplicationContext(), "시작합니다", Toast.LENGTH_LONG)).show();
             finish(); //액티비티 종료
         }
         //나머지는 '다음'버튼으로
         else{
-            mViewPager.setCurrentItem(currentPage+1);
+            mViewPager.setCurrentItem(mViewPager.getCurrentItem()+1);
         }
     }
 

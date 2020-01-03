@@ -22,6 +22,7 @@ public class ExampleMainActivity extends AppCompatActivity {
         if(firstviewshow != 1){
             startActivity(new Intent(this, PearlActivity.class));
         }
+
     }
 
     public void onClick(View view) {
