@@ -34,7 +34,7 @@ public class PearlActivity extends AppCompatActivity {
 
         this.initializeData();
 
-        mViewPager = findViewById(R.id.viewPager);
+        mViewPager = findViewById(R.id.view_pager);
         mViewPager.setClipToPadding(false);
         mViewPager.setAdapter(new PearlViewPagerAdapter(this, imageList, textList)); //viewPager에 어댑터를 통해 내용설정
 
